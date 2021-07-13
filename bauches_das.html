@@ -1,0 +1,289 @@
+<div class="row bauche_das"> 
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        
+        <div class="content_filt_all">  
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-12 content_filt_table">
+                <button type="button" onclick="tabsDynamic('add_bauche','bauche_all','bauche_all','mdi-file-document-box','Bauche', 5)" class="btn btn-block btn-outline-info">Generar Bauche</button>
+            </div>
+        </div>
+
+        <form novalidate role="form" class="row" id="formTabBauches" action="" >
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <label for="cedula_cliente_bauche">Ingrese cédula cliente</label>
+                <div class="controls">
+                    <input type="text" required="" autofocus="" class="form-control cedula-inputmask" id="cedula_cliente_bauche">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12 vertical m-0">
+                <button class="btn waves-effect waves-light btn-secondary" type="submit">Buscar</button>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right m-b-20 p-r-0">
+            <button class="btn waves-effect waves-light btn-secondary" onclick="cargarBauchesAtencion('bauche_das', 99)" type="button">Recargar Tabla</button>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive m-t-20">
+        	<table id="tableBauchesDas" class="myTableBauches display nowrap table table-hover table-striped" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha Bauche</th>
+                            <th>Cédula</th>
+                            <th>Nombre</th>
+                            <th>Telefono</th>
+                            <th>Descripción</th>                        
+                            <th class="text-center">Estado</th>
+                            <th></th>                                 
+                        </tr>
+                </thead>
+                <tbody>
+                                                                        
+                </tbody>
+            </table>
+        </div>
+    </div>  
+</div>
+
+
+<div id="ModalActuBauche" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalActuBauche" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalActuBauche">Actualizar Bauche</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <form class="form" action="#" id="formActulizarBauche">
+                <div class="modal-body p-20 row">               
+                        
+                    <input type="hidden" id="id_bauch_edit" value="">
+                    
+                    <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <label for="fechini_bauch_edit">Fecha de ingreso</label>
+                        <div class="controls">
+                            <input type="text" required="" readonly="" class="form-control datepicker" data-date-end-date="0d" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd" id="fechini_bauch_edit">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <label for="fechrep_bauch_edit">Fecha de reparado</label>
+                        <div class="controls">
+                            <input type="text" required="" class="form-control datepicker" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd" data-date-end-date="0d" id="fechrep_bauch_edit">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <label for="fechsal_bauch_edit">Fecha de salida</label>
+                        <div class="controls">
+                            <input type="text" required="" class="form-control datepicker" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd" data-date-end-date="0d" id="fechsal_bauch_edit">
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label for="diagnostico_bauch_edit">Diagnóstico</label>
+                        <div class="controls">
+                            <textarea class="form-control" required="" rows="3" id="diagnostico_bauch_edit" ></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <label for="estado_bauch_edit">Estado</label>
+                        <div class="controls">
+                            <select id="estado_bauch_edit" required="" class="form-control">
+                                <option value="0">En reparación</option>
+                                <option value="1">Reparado</option>
+                                <option value="2">Sin arreglo</option>
+                            </select>
+                        </div>
+                    </div>
+               
+                </div>            
+                <div class="modal-footer">
+                    <button type="button" class="btn waves-effect btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn waves-effect btn-primary">Actualizar</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+    <!-- Modal Edit Bauche -->                    
+    <div id="ModalConsultarBauche" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header"> 
+                    <h4 class="modal-title text-center" id="myModalLabel">Consulta Bauche</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>                
+                <div class="modal-body p-30">                                
+                    <form class="form row" action="#" id="formTabBaucheEdit">
+                        
+                        <input type="hidden" id="id_bauche" value="">
+                        
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="fech_ini_bauch_consul">Fecha de ingreso</label>
+                            <div class="input-group">
+                                <p id="fech_ini_bauch_consul"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="fech_rep_bauch_consul">Fecha de reparado</label>
+                            <div class="input-group">
+                                <p id="fech_rep_bauch_consul"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="fech_sal_bauch_consul">Fecha de salida</label>
+                            <div class="input-group">
+                                <p id="fech_sal_bauch_consul"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="ced_user_consul">Cédula</label>
+                            <div class="input-group">
+                                <p id="ced_user_consul"></p>
+                            </div>
+                        </div>
+
+                         <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="nombre_consul">Nombre</label>
+                            <div class="input-group">
+                                <p id="nombre_consul"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="telefono_consul">Teléfono</label>
+                            <div class="input-group">
+                                <p id="telefono_consul"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label for="direccion_consul">Dirección</label>
+                            <div class="input-group">
+                                <p id="direccion_consul"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <label for="tipo_equipo_consul">Tipo de equipo</label>
+                            <div class="input-group">
+                               <p id="tipo_equipo_consul"></p>
+                            </div>
+                        </div> 
+
+                        <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <label for="marca_consul">Marca</label>
+                            <div class="input-group">
+                                <p id="marca_consul"></p>
+                            </div>
+                        </div> 
+
+                        <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <label for="modelo_consul">Modelo</label>
+                            <div class="input-group">
+                                <p id="modelo_consul"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <label for="serial_consul">Serial</label>
+                            <div class="input-group">
+                                <p id="serial_consul"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="estado_consul">Estado de la reparación</label>
+                            <div class="input-group">
+                                <p id="estado_consul"></p>
+                            </div>
+                        </div>  
+
+                        <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="estado_telf_consul">Estado del teléfono</label>
+                            <div class="input-group">
+                                <p id="estado_telf_consul"></p>
+                            </div>
+                        </div>                         
+
+
+                        <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label for="diagnostico_consul">Diagnóstico</label>
+                            <div class="input-group">
+                                <p id="diagnostico_consul"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" style="background: rgba(116, 96, 238, 0.8);
+                                margin-bottom: 1rem;
+                                border-radius: 20px; 
+                                border-top-right-radius: 0px;
+                                border-bottom-right-radius: 0px;
+                                padding: 10px;">
+                            <label for="presupuesto_consul">Presupuesto</label>
+                            <div class="input-group">
+                                <p id="presupuesto_consul"></p>
+                            </div>
+                        </div> 
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" style="background: rgba(116, 96, 238, 0.4);
+                                margin-bottom: 1rem;                                
+                                padding: 10px;">
+                            <label for="anticipo_consul">Anticipo</label>
+                            <div class="input-group">
+                                <p id="anticipo_consul"></p>
+                            </div>
+                        </div> 
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" style="background: rgba(116, 96, 238, 0.8);
+                            margin-bottom: 1rem;
+                            border-radius: 20px;
+                            border-top-left-radius: 0px;
+                            border-bottom-left-radius: 0px;
+                            padding: 10px;">
+                            <label for="resta_consul">Resta</label>
+                            <div class="input-group">
+                                <p id="resta_consul"></p>
+                            </div>
+                        </div> 
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn waves-effect btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn waves-effect btn-primary" onclick="editarBauche()">Actualizar Bauche</button>
+            </div>
+        </div>                       
+    </div>
+    <!-- /.modal-dialog -->
+</div>  
+
+
+
+<script>
+
+! function(window, document, $) {
+    "use strict";
+    $("#formTabBauches input").not("[type=submit]").jqBootstrapValidation()
+}(window, document, jQuery);
+
+
+var type = localStorage.getItem("type");
+    if(type == "3"){
+        $(".bauche_das .content_filt_all").hide();        
+    }
+
+</script>  
+
+                   
+            

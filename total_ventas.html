@@ -1,0 +1,41 @@
+
+<div class="row total_ventas"> 
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-b-40">
+                
+        <form novalidate role="form" class="row" id="formTotalVentas" action="" >
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <label for="fecha_dia_ventas">Ingrese fecha a consultar</label>
+                <div class="controls">
+                    <input type="text" required="" class="form-control datepicker" data-date-end-date="0d" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd" id="fecha_dia_ventas" tabindex="1">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12 vertical m-0">
+                <button class="btn waves-effect waves-light btn-secondary" type="submit">Buscar</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+        <h2 id="titulo_venta" style="color: #2f3d4a"></h2>
+        <h3 id="ventas_total_diaria" style="color: #009efb"></h3>
+        <h3 id="ventas_total_diaria_efectivo" style="color: #009efb"></h3>
+
+    </div>  
+</div>
+
+</div>
+
+<script>
+
+! function(window, document, $) {
+    "use strict";
+    $("#formTotalVentas input").not("[type=submit]").jqBootstrapValidation()
+}(window, document, jQuery);
+
+</script>                  
+            
+    

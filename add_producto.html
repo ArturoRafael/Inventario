@@ -1,0 +1,134 @@
+<div class="row agregate_producto">                    
+                        
+    <form novalidate class="row" id="formNewProducto">                
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+            <span class="field_mjs">Campos con (*) son requeridos</span>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">        
+            
+            <div class="card content-form">
+                <div class="card-body">
+                    <div class="p-t-20 row">
+                        
+                        <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="cod_barras_pro">Codigo de Barras*</label>
+                            <div class="controls">
+                                <input type="text" required="" data-validation-required-message="Campo requerido" autofocus="" id="cod_barras_pro" class="form-control" placeholder="Codigo">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
+                            <label for="marca">Marca*</label>
+                            <div class="controls">                                 
+                                <input type="text" data-validation-required-message="Campo requerido" required="" id="marca" class="form-control" placeholder="Marca">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="modelo">Modelo*</label>
+                            <div class="controls">
+                                <input type="text" data-validation-required-message="Campo requerido" required="" class="form-control" id="modelo" placeholder="Modelo">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <label for="color">Color*</label>
+                            <div class="controls">
+                                <input type="text" data-validation-required-message="Campo requerido"required="" class="form-control" id="color" placeholder="Color">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-xl-3 col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                            <label for="garantia">Garantía</label>
+                            <div class="input-group">
+                                <input type="tel" class="form-control" id="garantia" placeholder="Garantía" asp-for="FaxNumber">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label for="descripción">Descripción Generales</label>
+                            <div class="controls">
+                                <textarea required="" data-validation-required-message="Campo requerido" maxlength="200" class="form-control" id="descripcion" placeholder="Sin descripción"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            
+            <div class="card content-form">
+                <div class="card-body">
+                    <div class="p-t-20 row">
+
+                        <div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <label for="tipo_prod">Tipo de Producto</label>
+                            <div class="controls">                                  
+                                <select class="form-control custom_select" data-validation-required-message="Campo requerido" style="width: 100%;" required=""  id="tipo_prod">
+                                    <option value="1" selected=""> Nuevo </option>
+                                    <option value="2"> Servicio Técnico </option>                  
+                                </select>
+                            </div>
+                        </div> 
+
+                        <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <label for="precio_compra">Precio de Compra US$</label>
+                            <div class="controls">
+                                <input type="number" data-validation-required-message="Campo requerido" min="0.00" step="0.01" required="" class="form-control" id="precio_compra">
+                            </div>
+                        </div>
+                        <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                            <label for="precio_venta">Precio de Venta COL$</label>
+                            <div class="controls">
+                                <input type="number" data-validation-required-message="Campo requerido" min="0.00" step="0.01" required="" class="form-control" id="precio_venta">
+                            </div>
+                        </div>                    
+
+                        <div class="form-group col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <label for="cantidad">Cantidad Disponible</label>
+                            <div class="controls">
+                                <input type="number" data-validation-required-message="Campo requerido" step="1" min="0" required="" class="form-control" id="cantidad">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 hide">
+                            <label for="input-file-now">Imagen*</label>
+                            <div class="controls">                                 
+                                <input type="file" data-max-file-size="4M" class="dropify" id="input-file-now">
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+       
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="f-l">
+                <button type="button" class="btn waves-effect btn-secondary" onclick="closeTabActive();" tabindex="20">Cancel</button>
+            </div>
+            
+            <div class="f-r">
+                <button type="reset" onclick="reset_imagen()" class="btn waves-effect btn-secondary">Borrar</button>
+                <button class="btn waves-effect waves-light btn-info" type="submit" id="btnSave" tabindex="21">Save</button>            
+            </div>
+        </div>
+    
+    </form>
+
+
+
+
+<script>
+! function(window, document, $) {
+    "use strict";
+    $("#formNewProducto input,#formNewProducto select,#formNewProducto textarea").not("[type=submit]").jqBootstrapValidation()
+}(window, document, jQuery);
+
+
+</script>

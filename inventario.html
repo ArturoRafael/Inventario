@@ -1,0 +1,155 @@
+
+<div class="row inventario_producto">
+ 
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-b-40">
+        
+        <div class="content_filt_all">  
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-12 content_filt_table">
+                <button type="button" onclick="tabsDynamic('add_producto','agregate_producto','agregate_producto','mdi-cart-plus','Agregar Productos', 1)" class="btn btn-block btn-outline-info">Agregar Productos</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 contentTable p-t-20">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right m-b-20 p-r-0">
+            <button class="btn waves-effect waves-light btn-secondary" onclick="cargarInvent('inventario_producto');" type="button">Recargar Tabla</button>
+        </div>
+        <div class="table-responsive">
+            <table id="tableInventory" class="myTable myTableDas tablePayers display nowrap table table-hover table-striped" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Codigo de Barras</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Precio Compra (US$)</th>
+                        <th>Precio Venta (COL$)</th>
+                        <th>Cantidad Disponible</th>
+                        <th></th>                        
+                    </tr>
+                </thead>
+                <tbody>                                              
+                </tbody>
+            </table>
+        </div>
+            
+    </div>  
+</div>
+
+
+ <!-- Modal Edit  -->                    
+    <div id="myModalEditProducto" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header"> 
+                    <h4 class="modal-title text-center" id="myModalLabel">Edición de Producto</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>                
+                <div class="modal-body">                                
+                    <form class="form row" action="#" id="formTabProductoEdit">
+                        <input type="hidden" id="id_produc_edit" value="">
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="barras_edit">Codigo de Barras*</label>
+                            <div class="controls">
+                                <input type="text" required="" data-validation-required-message="Campo requerido" autofocus="" id="barras_edit" class="form-control" placeholder="Codigo">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="marca_edit">Marca*</label>
+                            <div class="controls">
+                                <input type="text" data-validation-required-message="Campo requerido" required="" id="marca_edit" class="form-control" placeholder="Marca">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="modelo_edit">Modelo*</label>
+                            <div class="controls">
+                                <input type="text" data-validation-required-message="Campo requerido" required="" class="form-control" id="modelo_edit" placeholder="Modelo">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="color_edit">Color*</label>
+                            <div class="controls">
+                                <input type="text" data-validation-required-message="Campo requerido"required="" class="form-control" id="color_edit" placeholder="Color">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="garantia_edit">Garantía</label>
+                            <div class="input-group">
+                                <input type="tel" class="form-control" id="garantia_edit" placeholder="Garantía" asp-for="FaxNumber">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="descripcion_edit">Descripción Generales</label>
+                            <div class="controls">
+                                <textarea required="" data-validation-required-message="Campo requerido" maxlength="200" class="form-control" id="descripcion_edit">Sin descripción</textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="tipo_prod_edit">Tipo de Producto</label>
+                            <div class="controls">                                  
+                                <select class="form-control custom_select" data-validation-required-message="Campo requerido" style="width: 100%;" required=""  id="tipo_prod_edit">
+                                    <option value="1"> Nuevo </option>
+                                    <option value="2"> Servicio Técnico </option>                  
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="precio_compra_edit">Precio de Compra US$</label>
+                            <div class="controls">
+                                <input type="number" data-validation-required-message="Campo requerido" min="0.00" step="0.01" required="" class="form-control" id="precio_compra_edit">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="precio_venta_edit">Precio de Venta COL$</label>
+                            <div class="controls">
+                                <input type="number" data-validation-required-message="Campo requerido" min="0.00" step="0.01" required="" class="form-control" id="precio_venta_edit">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="cantidad_edit">Cantidad Disponible</label>
+                            <div class="controls">
+                                <input type="number" data-validation-required-message="Campo requerido" step="1" min="0" required="" class="form-control" id="cantidad_edit">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="tipo_prod_edit">Estado del producto</label>
+                            <div class="controls">                                  
+                                <select class="form-control custom_select" data-validation-required-message="Campo requerido" style="width: 100%;" required=""  id="estado_edit">
+                                    <option value="1"> Activo </option>
+                                    <option value="0"> Inactivo </option>                  
+                                </select>
+                            </div>
+                        </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn waves-effect btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn waves-effect btn-primary" onclick="editarProducto()">Actualizar Producto</button>
+            </div>
+        </div>                       
+    </div>
+    <!-- /.modal-dialog -->
+</div>  
+
+<script type="text/javascript">
+    var type = localStorage.getItem("type");
+    if(type != "1"){
+        $(".inventario_producto .content_filt_all").hide();
+        $(".contentTable").removeClass("p-t-20");
+    }
+</script>
+                   
+            
+    

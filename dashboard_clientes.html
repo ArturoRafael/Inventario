@@ -1,0 +1,79 @@
+
+<div class="row das_clientes"> 
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-b-20">
+        
+
+        <div class="content_filt_all clienteSystem">  
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-12 content_filt_table">
+                <button type="button" onclick="tabsDynamic('add_cliente','agregate_cliente','agregate_cliente','mdi-account-plus','Registrar Cliente', 7)" class="btn btn-block btn-outline-info">Registrar Cliente</button>
+            </div>
+        </div>
+
+        <div class="content_filt_all">
+            <div class="input-group vertical">
+            <label for="switch_users" class="m-r-10">Clientes del negocio</label>
+                <input type="checkbox" class="js-switch" id="switch_users" onchange="changeUser('switch_users')" data-secondary-color="#01a9ac" data-color="#ffbc34" data-size="large" />
+            <label for="switch_users" class="m-l-10">Usuarios del sistema</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 clienteSystem">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right m-b-20 p-r-0">
+            <button class="btn waves-effect waves-light btn-secondary" onclick="cargarClientes('das_clientes');" type="button">Recargar Tabla</button>
+        </div>
+        <div class="table-responsive">
+            <table id="tableClientes" class="myTable tableClientes display nowrap table table-hover table-striped" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Teléfono</th>
+                        <th></th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                                                                
+                </tbody>
+            </table>
+        </div>           
+
+    </div>  
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 usuarioSystem m-t-50 hide">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right m-b-20 p-r-0">
+            <button class="btn waves-effect waves-light btn-secondary" onclick="cargarClientes('das_clientes', true);" type="button">Recargar Tabla</button>
+        </div>
+        <div class="table-responsive">
+            <table id="tableUsuario" class="myTable tableUsuario display nowrap table table-hover table-striped" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Tipo de Rol</th>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Contraseña</th>                                                
+                    </tr>
+                </thead>
+                <tbody>
+                                                                 
+                </tbody>
+            </table>
+        </div>           
+    </div>
+
+</div>
+
+<script>
+    $(function() {       
+        var elems = Array.prototype.slice.call(document.querySelectorAll('.das_clientes .js-switch'));
+        $('.das_clientes .js-switch').each(function() {
+            new Switchery($(this)[0], $(this).data());
+        });
+    });
+</script>
+                   
+            
+    

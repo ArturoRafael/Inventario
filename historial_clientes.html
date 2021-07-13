@@ -1,0 +1,133 @@
+
+<div class="row historial"> 
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-b-40">
+        
+        
+        <form novalidate role="form" class="row" id="formTabHistorial" action="" >
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <label for="codigo_barras_servicio">Ingrese cédula cliente</label>
+                <div class="controls">
+                    <input type="text" required="" autofocus="" class="form-control cedula-inputmask" id="cedula_cliente_historial">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12 vertical m-0">
+                <button class="btn waves-effect waves-light btn-secondary" type="submit">Buscar</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div class="table-responsive">
+            <table id="tableFacturas" class="myTable myTableDas display nowrap table table-hover table-striped hide" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre del Cliente</th>
+                        <th>N° Factura Físico</th>                        
+                        <th>Fecha de Facturación</th>
+                        <th>Total Cancelado</th> 
+                        <th></th>                                               
+                    </tr>
+                </thead>
+                <tbody>                                                
+                </tbody>
+            </table>
+        </div>
+            
+
+
+    </div>  
+</div>
+
+
+
+<div id="ModalSearchDeatils" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabelDetalle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabelDetalle">Detalle de Factura</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body p-20">
+
+                <div class="row col-12">                          
+                    <div class="col-3 content-title-contact">
+                        <h4 id="fecha_fac_fact"></h4>
+                        <p>Fecha de Facturación</p>
+                    </div> 
+                    <div class="col-3 content-title-contact">
+                        <h4 id="num_fact"></h4>
+                        <p>Número de Factura</p>
+                    </div>                    
+                    <div class="col-3 content-title-contact">
+                        <h4 class="text-success font-bold" id="cedula_fact"></h4>
+                        <p>Cédula Faturada</p>
+                    </div>  
+                    <div class="col-3 content-title-contact">
+                        <h4 id="name_fact">Arturo Escalona</h4>
+                        <p>Cliente Asociado</p>
+                    </div>                    
+                </div>
+
+                <div class="row col-12">
+                    <div class="col-4 content-title-contact">
+                        <h4 id="telf_fact"></h4>
+                        <p>Teléfono</p>
+                    </div>                    
+                    <div class="col-4 content-title-contact">
+                        <h4 id="email_fact">artiro@gmail.com</h4>
+                        <p>Correo</p>
+                    </div>
+                    <div class="col-4 content-title-contact">
+                        <h4 class="text-success font-bold" id="total_fact"></h4>
+                        <p>Total Cancelado</p>
+                    </div>
+                </div>
+               
+                <div class="row col-12 m-b-40 m-t-20">  
+                    <h4>Detalle de Productos comprados:</h4>
+                </div>
+                <div class="col-12"> 
+                    <div class="table-responsive">
+                        <table id="tableDetalleFactura" class="display myTable nowrap table table-hover table-striped" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Codigo de Barras</th>
+                                    <th>Marca</th>
+                                    <th>Modelo</th>
+                                    <th>Descripción</th>
+                                    <th>Cantidad</th>
+                                    <th>Precio de compra</th>
+                                </tr>
+                            </thead>
+                            <tbody>                                  
+                            </tbody>
+                        </table>
+                    </div>
+               </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn waves-effect btn-secondary" data-dismiss="modal">Cerrar</button>                
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<script>
+
+! function(window, document, $) {
+    "use strict";
+    $("#formTabHistorial input").not("[type=submit]").jqBootstrapValidation()
+}(window, document, jQuery);
+
+</script>  
+
+                   
+            
+    

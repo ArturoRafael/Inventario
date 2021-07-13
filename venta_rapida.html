@@ -1,0 +1,150 @@
+
+<div class="row venta_all">
+    
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-b-40 formFact">
+       
+        <form novalidate role="form" class="row" id="formVentaRapida">
+            
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-b-20 text-center">
+                <h3 class="card-title">Venta Rápida</h3> 
+            </div>
+
+            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <label for="codigo_venta_rapida">Producto</label>
+                <div class="controls">
+                    <input type="text" class="form-control" required="" id="codigo_venta_rapida" placeholder="Código de barras" style="height: 50px; font-size: large;">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-12 hide contAlerProductos">               
+            </div>
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="table-responsive">
+                    <table id="tableVentaRapida" class="myTable display nowrap table" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>                                
+                                <th></th>
+                                <th>Descripción</th>
+                                <th>Precio $COL</th>
+                                <th class="text-center">Cant. Disponible</th>
+                                <th class="text-center w-25">Cantidad</th>                                
+                            </tr>
+                        </thead>
+                        <tbody class="item">
+                            <tr>
+                                <td><input type="hidden" id="item_id_"></td>
+                                <td id="item_name_" style="font-size: large;"></td>
+                                <td id="item_price_" style="font-size: x-large;"></td>
+                                <td id="item_disponible_" class="text-center" style="font-size: x-large;"></td>
+                                <td class="w-25"><input type="number" id="item_cant_" class="form-control cantidad_sol text-center" onkeyup="validateCant()" required="" max="" min="0" style="font-size: x-large;"></td>
+                            </tr>                           
+                        </tbody>
+                    </table>
+                </div>                                
+            </div>
+            <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-t-10">
+                <div class="text-center m-t-10">
+                    <h3><b>Total :</b><span id="total_vent" class="f-w-600" style="color: blue;"></span></h3>
+                </div>                
+            </div>
+
+            <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                <button class="btn btn-inverse" type="reset"> Borrar </button>
+                <button class="btn waves-effect waves-light btn-info btnVentaRapida"  type="submit">Comprar</button>
+            </div>
+
+        </form>
+    </div>
+
+
+</div>
+
+<script>
+! function(window, document, $) {
+    "use strict";
+    $("#formVentaRapida input").not("[type=submit]").jqBootstrapValidation()
+}(window, document, jQuery);
+
+
+
+$("html body").on('blur','#codigo_venta_rapida',function() {
+  
+    var codigo = $('#codigo_venta_rapida').val();
+    
+    if(codigo.length < 2){
+        $('#codigo_venta_rapida').val('');
+        return false;
+    }
+
+    
+    getRequestForm(`https://${ipp}/api/productos/detalle/${codigo}`)
+        .then(function(data) {
+            var id_f = data.productos["codigo_barras"];
+            var descrip_f = data.productos["descripcion"];            
+            var pventa_f = data.productos["precio_venta"];
+            var cantid_f = data.productos["cantidad_disponible"];
+
+            if(cantid_f == 0){
+                swal("No hay producto disponibles para la venta","","info");
+                return false;
+            }
+            
+            $('#item_id_').val(id_f);
+            $('#item_name_').text(descrip_f);
+            $('#item_price_').text(pventa_f);
+            $('#item_disponible_').text(cantid_f);            
+            $('#item_cant_').attr('max',cantid_f);
+
+
+        }).catch(function(error){
+            swal("El producto no se encuentra registrado en el inventario","Verifique el código!","warning");
+            $('#codigo_venta_rapida').val("");
+        });  
+
+});
+
+
+$("html body").on('blur','.cantidad_sol',function() {
+    
+    var total = 0;    
+    var inputPrice = parseFloat($('#item_price_').text());
+    var inputCant = parseInt($("#item_cant_").val());
+    
+    total = inputCant * inputPrice;
+    $('#total_vent').text(' '+formatNumber.new(total)+' $COL');
+
+});
+
+function validateCant(){
+    
+    var max = parseInt($("#item_cant_").attr("max"));
+    var valor = parseInt($("#item_cant_").val());
+    if(valor > max){
+        $("#item_cant_").val(max);
+    }
+}
+
+
+var formatNumber = {
+     separador: ".", // separador para los miles
+     sepDecimal: ',', // separador para los decimales
+     formatear:function (num){
+     num +='';
+     var splitStr = num.split('.');
+     var splitLeft = splitStr[0];
+     var splitRight = splitStr.length > 1 ? this.sepDecimal + splitStr[1] : '';
+     var regx = /(\d+)(\d{3})/;
+     while (regx.test(splitLeft)) {
+     splitLeft = splitLeft.replace(regx, '$1' + this.separador + '$2');
+     }
+     return this.simbol + splitLeft +splitRight;
+     },
+     new:function(num, simbol){
+     this.simbol = simbol ||'';
+     return this.formatear(num);
+     }
+}
+</script>                
+            
+    

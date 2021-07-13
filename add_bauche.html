@@ -1,0 +1,422 @@
+
+<div class="row bauche_all">
+ 
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        
+        <h3 class="card-title">Servicio Técnico</h3>
+        
+        <form novalidate role="form" method="POST" class="row m-t-20" id="formTabBauche" action="#">
+                       
+            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <label for="bauchdate_bauch">Fecha de ingreso</label>
+                <div class="controls">
+                    <input type="text" required="" class="form-control datepicker" data-date-end-date="0d" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd" id="bauchdate_bauch" tabindex="1">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <label for="fecha_reparado">Fecha de reparación</label>
+                <div class="input-group">
+                    <input type="text" class="form-control datepicker" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd" data-date-end-date="0d" id="fecha_reparado" tabindex="3">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <label for="bauchsal_bauch">Fecha de salida</label>
+                <div class="input-group">
+                    <input type="text" class="form-control datepicker" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd" data-date-end-date="0d" id="bauchsal_bauch" tabindex="2">
+                </div>
+            </div>
+
+            
+
+            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <label for="cedula_bauch">Cédula</label>
+                <div class="controls">
+                    <input type="text" required="" class="form-control cedula-inputmask" id="cedula_bauch" placeholder="Cédula del cliente" tabindex="4">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <label for="name_bauch">Nombre Cliente</label>
+                <div class="controls">
+                    <input type="text" required="" class="form-control" id="name_bauch" placeholder="Nombre del cliente" tabindex="5">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                <label for="telf_bauch">Teléfono de Contacto</label>
+                <div class="controls">
+                    <input type="tel" required="" class="form-control" id="telf_bauch" placeholder="Teléfono del cliente" tabindex="6">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <label for="dir_bauch">Dirección</label>
+                <div class="input-group">
+                    <input class="form-control" placeholder="Dirección del usuario" tabindex="7" id="dir_bauch" />
+                </div>
+            </div>
+
+          
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <label for="tipoequi_bauch">Tipo de Equipo</label>
+                <div class="controls">
+                    <input type="text" required=""  tabindex="8" class="form-control" id="tipoequi_bauch" placeholder="Tipo de Equipo">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <label for="marca_bauch">Marca</label>
+                <div class="controls">
+                    <input type="text" required="" tabindex="9" class="form-control" id="marca_bauch" placeholder="Marca">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <label for="modelo_bauch">Modelo</label>
+                <div class="controls">
+                    <input type="text" required="" tabindex="10" class="form-control" id="modelo_bauch" placeholder="Modelo">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <label for="serial_bauch">Serial</label>
+                <div class="controls">
+                    <input type="text" required="" tabindex="11" class="form-control" id="serial_bauch" placeholder="Serial">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 m-t-10">
+                <label for="estadotel_bauch">Estado del Teléfono</label>
+                <div class="controls">
+                    <textarea class="form-control" tabindex="12" required="" placeholder="Estado del teléfono" rows="3" id="estadotel_bauch" ></textarea>
+                </div>
+            </div>
+
+            <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 m-t-10">
+                <label for="diagnostico_bauch">Diágnostico</label>
+                <div class="controls">
+                    <textarea class="form-control"  tabindex="13" required="" placeholder="Diágnostico" rows="3" id="diagnostico_bauch" ></textarea>
+                </div>
+            </div>
+
+             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <hr role="separator" class="divider" style="border-top: 1px solid rgba(0,0,0,.6); border-style: dashed;" />
+            </div>
+
+            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12" style="background: rgba(116, 96, 238, 0.8);
+                margin-bottom: 1rem;
+                border-radius: 20px; 
+                border-top-right-radius: 0px;
+                border-bottom-right-radius: 0px;
+                padding: 10px;">
+                <label for="presup_bauch" class="f-w-600">Presupuesto</label>
+                <div class="input-group">
+                    <input type="text" onchange="changeBaucheValor()" tabindex="14" class="form-control" id="presup_bauch" placeholder="100">
+                     <div class="input-group-append">
+                        <span class="input-group-text">$COP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12" style="background: rgba(116, 96, 238, 0.4);
+                margin-bottom: 1rem;                                
+                padding: 10px;">
+                <label for="anticipo_bauch" class="f-w-600">Anticipo</label>
+                <div class="input-group">
+                    <input type="text" tabindex="15" class="form-control" id="anticipo_bauch" placeholder="0" onchange="changeBaucheValor()">
+                    <div class="input-group-append">
+                        <span class="input-group-text">$COP</span>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12" style="background: rgba(116, 96, 238, 0.8);
+                margin-bottom: 1rem;
+                border-radius: 20px;
+                border-top-left-radius: 0px;
+                border-bottom-left-radius: 0px;
+                padding: 10px;">
+                <label for="resta_bauch" class="f-w-600">Resta</label>
+                <div class="input-group">
+                    <input type="text" tabindex="16" class="form-control" id="resta_bauch" placeholder="0">
+                     <div class="input-group-append">
+                        <span class="input-group-text">$COP</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                <button class="btn waves-effect waves-light btn-info" type="submit">Generar Bauche</button>
+            </div>
+
+        </form>
+    </div>
+
+
+    <!------------------------------ areaPrint --------------------------------------->
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 areaPrint hide">
+        <div class="col-12 p-b-10">
+            <button class="btn btn-default f-r" type="button" id="EditBauche" data-toggle="modal" data-target="#myModalEditBauche">
+                <i class="mdi mdi-table-edit font-24"></i>
+            </button>
+        </div>
+        <div class="card card-body printableArea">
+            <div class="p-b-20">
+                <div class="col-xl-12 m-auto text-center">
+                    <img src="assets/images/logo-carrillo.png" style="width: 40%;" alt="Logo Carrillo System" class="img-responsive">
+                </div>
+                <div class="col-xl-12 m-auto text-center">
+                    <p class="f-w-600 m-b-0">Propietario Branyer Carrillo  /  +58 424 5557292</p>
+                    <p class="f-w-600">Av. San Carrillo Calo | Barrio Paez El Nula</p>
+                </div>
+            </div>
+            <h3><b>Bauche de Servicio Técnico</b></h3>
+            <hr>
+            <div class="row">
+                
+                    <div class="col-6">
+                        <h3> &nbsp;<b>Datos Usuarios</b></h3>
+                        <hr>
+                        <p class="text-muted m-l-5" id="name_user"></p>
+                        <p class="text-muted m-l-5" id="ced_user"></p>
+                        <p class="text-muted m-l-5" id="tel_user"></p>
+                        <p class="text-muted m-l-5" id="dir_user"></p>
+                    </div>
+                    <div class="col-6">
+                        <h3> &nbsp;<b>Datos de Servicio Técnico</b></h3>
+                        <hr>
+                        <p class="m-t-10"><b><i class="fa fa-calendar"></i> Fecha de Ingreso:</b> <span id="fech_ini_bauch"></span></p>
+                        <p><b><i class="fa fa-calendar"></i> Fecha de Reparado:</b> <span id="fech_rep_bauch"></span></p>
+                        <p><b><i class="fa fa-calendar"></i> Fecha de Salida:</b> <span id="fech_sal_bauch"></span></p>                        
+                    </div>
+                    <div class="col-12">
+                        <h3> &nbsp;<b>Descripción de la falla</b></h3>
+                        <hr>                         
+                         <div class="row">
+                             <div class="col-3">
+                                 <p class="text-muted m-l-5" id="tipo_equi_user"></p>
+                             </div>
+                             <div class="col-3">
+                                 <p class="text-muted m-l-5" id="marca_user"></p>
+                             </div>
+                             <div class="col-3">
+                                 <p class="text-muted m-l-5" id="modelo_user"></p>
+                             </div>
+                             <div class="col-3">
+                                 <p class="text-muted m-l-5" id="serial_user"></p>
+                             </div>
+                             <div class="col-6">
+                                 <p class="text-muted m-l-5" id="estadotel_user"></p>
+                             </div>
+                             <div class="col-6">
+                                 <p class="text-muted m-l-5" id="diagnostico_user"></p>
+                             </div>
+                         </div>
+                        <hr>                        
+                        <p class="text-muted f-w-600 m-l-5">Costo:</p>
+                            <div class="row">
+                                <div class="col-4">
+                                    <p class="m-l-5 f-w-600" style="color: green;" id="prep_user"></p>
+                                </div>
+                                <div class="col-4">
+                                    <p class="m-l-5 f-w-600" style="color: blue;" id="anticipo_user"></p>
+                                </div> 
+                                <div class="col-4">
+                                    <p class="m-l-5 f-w-600" style="color: red;" id="resta_user"></p>
+                                </div> 
+                            </div>
+                    </div>
+            </div>
+            <div class="row col-xl-12 p-t-20">
+                 <p class="f-w-600">Condiciones:</p>
+                 <ul>
+                     <li>Al pasar los 20 días de recibido el equipo, si este fue reparado la empresa recalcula el valor de la reparación.</li>
+                     <li>Pasado 3 meses de recibido y reparado del equipo y comunicado con el cliente para la busqueda, si el cliente no retira su artículo se procederá a la venta del producto.</li>
+                     <li>La empresa solo cubre piezas reparadas (no daños alternos al artículo).</li>
+                     <li>Los táctiles y piezas eléctricas no tienen garantía</li>
+                     <li>El bauche actual no posee ningun valor fiscal.</li>
+                 </ul>
+            </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center m-t-20">
+            <button class="btn btn-inverse" type="button" id="CancelBauche"> Regresar </button>
+            <button id="print" class="btn btn-primary" type="button"> <span><i class="fa fa-print"></i> Imprimir</span> </button>
+        </div>
+
+    </div> 
+
+    <!-- Modal Edit Bauche -->                    
+    <div id="myModalEditBauche" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header"> 
+                    <h4 class="modal-title text-center" id="myModalLabel">Edición de Bauche</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>                
+                <div class="modal-body p-20">                                
+                    <form class="form row" action="#" id="formTabBaucheEdit">
+                        
+                        <input type="hidden" id="id_bauche" value="">
+                        
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="fech_ini_bauch_edit">Fecha de ingreso</label>
+                            <div class="input-group">
+                                <input type="text" required="" class="form-control datepicker" data-date-end-date="0d" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd" id="fech_ini_bauch_edit">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="fech_rep_bauch_edit">Fecha de reparado</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control datepicker" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd" data-date-end-date="0d" id="fech_rep_bauch_edit">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="fech_sal_bauch_edit">Fecha de salida</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control datepicker" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd" data-date-end-date="0d" id="fech_sal_bauch_edit">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="ced_user_edit">Cédula</label>
+                            <div class="input-group">
+                                <input type="text" required="" readonly="" class="form-control cedula-inputmask" id="ced_user_edit" placeholder="Cédula del cliente">
+                            </div>
+                        </div>
+
+                         <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="nombre_edit">Nombre</label>
+                            <div class="input-group">
+                                <input type="text" required="" class="form-control" id="nombre_edit">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <label for="telefono_edit">Teléfono</label>
+                            <div class="input-group">
+                                <input type="text" required="" class="form-control" id="telefono_edit">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <label for="direccion_edit">Dirección</label>
+                            <div class="input-group">
+                                <textarea class="form-control" required="" rows="3" id="direccion_edit" ></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <label for="tipo_equipo_edit">Tipo de equipo</label>
+                            <div class="input-group">
+                                <input type="text" required="" class="form-control" id="tipo_equipo_edit">
+                            </div>
+                        </div> 
+
+                        <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <label for="marca_edit">Marca</label>
+                            <div class="input-group">
+                                <input type="text" required="" class="form-control" id="marca_edit">
+                            </div>
+                        </div> 
+
+                        <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <label for="modelo_edit">Modelo</label>
+                            <div class="input-group">
+                                <input type="text" required="" class="form-control" id="modelo_edit">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <label for="serial_edit">Serial</label>
+                            <div class="input-group">
+                                <input type="text" required="" class="form-control" id="serial_edit">
+                            </div>
+                        </div> 
+
+                        <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="estado_telf_edit">Estado del teléfono</label>
+                            <div class="input-group">
+                                <textarea class="form-control" required="" rows="3" id="estado_telf_edit" ></textarea>
+                            </div>
+                        </div>                         
+
+
+                        <div class="form-group col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label for="diagnostico_edit">Diagnóstico</label>
+                            <div class="input-group">
+                                <textarea class="form-control" required="" rows="3" id="diagnostico_edit" ></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" style="background: rgba(116, 96, 238, 0.8);
+                                margin-bottom: 1rem;
+                                border-radius: 20px; 
+                                border-top-right-radius: 0px;
+                                border-bottom-right-radius: 0px;
+                                padding: 10px;">
+                            <label for="presupuesto_edit">Presupuesto</label>
+                            <div class="input-group">
+                                <input type="number" required="" class="form-control" id="presupuesto_edit">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">$COP</span>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" style="background: rgba(116, 96, 238, 0.4);
+                                margin-bottom: 1rem;                                
+                                padding: 10px;">
+                            <label for="anticipo_edit">Anticipo</label>
+                            <div class="input-group">
+                                <input type="number" required="" class="form-control" id="anticipo_edit">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">$COP</span>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="form-group col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12" style="background: rgba(116, 96, 238, 0.8);
+                            margin-bottom: 1rem;
+                            border-radius: 20px;
+                            border-top-left-radius: 0px;
+                            border-bottom-left-radius: 0px;
+                            padding: 10px;">
+                            <label for="resta_edit">Resta</label>
+                            <div class="input-group">
+                                <input type="number" required="" class="form-control" id="resta_edit">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">$COP</span>
+                                </div>
+                            </div>
+                        </div> 
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn waves-effect btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn waves-effect btn-primary" onclick="editarBauche()">Actualizar Bauche</button>
+            </div>
+        </div>                       
+    </div>
+    <!-- /.modal-dialog -->
+</div>    
+
+</div>
+
+<script>
+
+! function(window, document, $) {
+    "use strict";
+    $("#formTabBauche input,#formTabBauche textarea").not("[type=submit]").jqBootstrapValidation()
+}(window, document, jQuery);
+
+
+
+</script>                 
+            
+    

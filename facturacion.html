@@ -1,0 +1,292 @@
+
+<div class="row facturación_all">
+    
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-b-40 formFact">
+        
+        <div class="content_filt_all">  
+            <div class="col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-12 content_filt_table">
+                <button type="button" onclick="tabsDynamic('add_cliente','agregate_cliente','agregate_cliente','mdi-account-plus','Registrar Cliente', 7)" class="btn btn-block btn-outline-info">Registrar Cliente</button>
+            </div>
+        </div>
+
+        <form novalidate role="form" class="row" id="formTabFactura">
+            
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-b-20">
+                <h3 class="card-title">Datos de la Factura</h3> 
+            </div>
+            
+            <div class="form-group col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <label for="bauchdate_fact">Fecha Factura</label>
+                <div class="controls">
+                    <input type="text" required="" autofocus="autofocus" class="form-control datepicker" data-date-end-date="0d" data-date-format="dd/mm/yyyy" placeholder="dd/mm/yyyy" id="bauchdate_fact">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <label for="numero_fact">N° Factura</label>
+                <div class="controls">
+                   <input type="text" class="form-control" id="numero_fact" placeholder="A-001">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-2 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <label for="cedula_fact">Cédula</label>
+                <div class="controls">
+                    <input type="text" required="" onchange="" class="form-control cedula-inputmask" id="cedula_fact" placeholder="Cédula del cliente">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <label for="name_fact">Nombre</label>
+                <div class="controls">
+                    <input type="text" required=""  readonly="" class="form-control" id="name_fact" placeholder="Nombre del cliente">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <label for="tel_fact">Teléfono</label>
+                <div class="input-group">
+                    <input type="tel" class="form-control" readonly="" id="tel_fact" placeholder="Teléfono del cliente">
+                </div>
+            </div>
+
+            <div class="p-b-20 p-t-20 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h3 class="card-title">Detalle de la Factura</h3>
+                <button type="button" id="addDetailsFactu" class="btn btn-warning f-r">Agregar</button>
+            </div>
+
+            <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-t-30">
+                <div class="table-responsive">
+                    <table id="tableFacturacion" class="myTable display nowrap table" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Codigo de Barras</th>
+                                <th>Descripción</th>
+                                <th>Precio COL$</th>
+                                <th>Cant. Disponible</th>
+                                <th>Cantidad</th>                                
+                            </tr>
+                        </thead>
+                        <tbody class="items">
+                            <tr>
+                                
+                                <td>
+                                    <input type="text" data-item="0" class="form-control items_factura" id="item_codigo" name="item_codigo[]" >
+                                    <input type="hidden" id="item_id_0" name="item_id[]" >
+                                </td>
+                                <td><input type="text" readonly="" class="form-control" id="item_name_0" name="item_name[]"></td>
+                                <td><input type="text" readonly="" class="form-control" id="item_price_0" name="item_price[]"></td>
+                                <td><input type="number" readonly="" class="form-control" id="item_disponible_0" name="item_disponible[]"></td>
+                                <td><input type="number" class="form-control cantidad_solit" min="0" max="1" onchange="validateNumber('0')"  id="item_cant_0" name="item_cant[]"></td>
+                                <td class="text-center">  
+                                  <button disabled="disabled" class="btn btn-danger button_eliminar"><span><i class="fas fa-trash-alt"></i></span></button>
+                               </td>
+                            </tr>                            
+                            <tr id="endTable">
+                                <td colspan="5" class="font-bold font-24">Total:</td>
+                                <td>                                    
+                                    <div class="input-group mb-3">
+                                      <input type="text" style="text-align: right;" readonly="" value="0" class="form-control" id="total_fact">
+                                      <div class="input-group-append">
+                                        <span class="input-group-text" id="basic-addon2">COL$</span>
+                                      </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+            </div>  
+
+
+            <div class="form-group col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                <button class="btn btn-inverse" type="reset"> Cancelar </button>
+                <button class="btn waves-effect waves-light btn-info btnGenerarFactura"  type="submit">Generar Factura</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-t-40 printFactura hide">
+        <div class="card card-body printableFactura">
+            <div class="col-md-12 m-auto text-center">
+                <img src="assets/images/logo-carrillo.png" style="width: 50%;" alt="Logo Carrillo System" class="img-responsive">
+            </div>
+            <h3><b>Factura</b> <span class="pull-right">#1</span></h3>
+            <hr>
+            <div class="row p-l-15 p-r-15">
+               
+                <div class="row col-md-12 content-contact">  
+                     <div class="col-6 content-title-contact">
+                        <h4 id="fecha_fact_print">12/05/2019</h4>
+                        <p>Fecha de Facturación</p>
+                    </div>   
+                    <div class="col-6 content-title-contact">
+                        <h4 id="num_fact_print">A-001</h4>
+                        <p>N° Factura</p>
+                    </div>
+                </div>
+
+                <div class="row col-md-12 content-contact">                        
+                        <div class="col-4 content-title-contact">
+                            <h4 id="nombre_print">Arturo Escalona</h4>
+                            <p>Nombre</p>
+                        </div>
+                        <div class="col-4 content-title-contact">
+                            <h4 id="cedula_print">V-12098543</h4>
+                            <p>Cédula</p>
+                        </div>
+                        <div class="col-4 content-title-contact">
+                            <h4 id="tel_print">04146548811</h4>
+                            <p>Teléfono</p>
+                        </div> 
+                </div>
+
+                <div class="row col-md-12">
+                    <div class="table-responsive m-t-40" style="clear: both;">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th>Descripción</th>
+                                    <th class="text-right">Cantidad</th>
+                                    <th class="text-right">Precio Costo</th>
+                                    <th class="text-right">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cuerpo_tabla_print">
+                                <tr>
+                                    <td class="text-center">1</td>
+                                    <td>Milk Powder</td>
+                                    <td class="text-right">2</td>
+                                    <td class="text-right"> 24 COL$ </td>
+                                    <td class="text-right"> 48 COL$ </td>
+                                </tr>                          
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="pull-right m-t-30 text-right">
+                        <hr>
+                        <h3><b>Total :</b><span id="total_fact_print"></span> $COL</h3>
+                    </div>
+                    <div class="clearfix"></div>                    
+                </div>
+            </div>
+            <div class="text-center" style="position:relative;">
+                <p style="bottom:0px; right:0px;" class="text-muted">Factura generada eléctronicamente. No cuenta con ningún tipo de valor ante el SENIAT.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="text-right">
+            <button class="btn btn-inverse" type="button" id="regresarFacturar"> Regresar </button>
+            <button id="printFact" class="btn btn-info" type="button"> <span><i class="fa fa-print"></i> Imprimir</span> </button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+
+$(document).ready(function () {
+   
+
+    $("#cedula_fact").blur(function() {
+        var cedula = $('#cedula_fact').val();
+        getRequestForm(`https://${ipp}/api/usuarios/detalle/${cedula}`)
+            .then(function(data) {
+                var nombre_user_f = data.usuario["nombre"];            
+                var tel_user_f = data.usuario["telefono"];
+
+                $('#name_fact').val(nombre_user_f);
+                $('#tel_fact').val(tel_user_f);
+
+            }).catch(function(error){
+                swal("No se encuentra el usuario","Registrarlo para continuar!","warning");
+            });
+      
+    });
+
+    $("html body").on('blur','#item_codigo',function() {
+        
+         
+        var filas = $(".items").find("tr"); //devulve las filas del body de tu tabla segun el ejemplo que brindaste
+        var resultado = [];
+        for(i = 0; i < filas.length - 1; i++){ //Recorre las filas 1 a 1
+            var celdas = $(filas[i]).find("td"); //devolverá las celdas de una fila
+            codigo = $($(celdas[0]).children("input")[0]).val();        
+            if(codigo != undefined){
+                resultado.push(codigo);
+            }
+        }
+        
+
+        var codigo = $('#item_codigo').val();
+        var item = $('#item_codigo').attr('data-item');
+        if(resultado.indexOf(codigo) != -1 && resultado.length > 1){
+            swal("El producto ya se encuentra registrado en la lista","Cambie el código!","warning");
+            $('#item_codigo').val('');
+            return false;
+        }
+
+        
+        getRequestForm(`https://${ipp}/api/productos/detalle/${codigo}`)
+            .then(function(data) {
+                var id_f = data.productos["id"];
+                var descrip_f = data.productos["descripcion"];            
+                var pventa_f = data.productos["precio_venta"];
+                var cantid_f = data.productos["cantidad_disponible"];
+
+                $('#item_id_'+item).val(id_f);
+                $('#item_name_'+item).val(descrip_f);
+                $('#item_price_'+item).val(pventa_f);
+                $('#item_disponible_'+item).val(cantid_f);
+                $('#item_cant_'+item).attr('max',cantid_f);
+
+
+
+            }).catch(function(error){
+                swal("No se encuentra el productouto","Verifique el código!","warning");
+                $('#item_codigo').val("");
+            });
+
+      
+
+    });
+
+
+    $("html body").on('blur','.cantidad_solit',function() {
+        
+        var total = 0;
+        
+        var inputPrice = $('input[name="item_price[]"]').slice();
+        var inputCant = $('input[name="item_cant[]"]').slice();
+        var leng = $('input[name="item_price[]"]').length;
+        
+        for (var i = 0; i < leng; i++) {
+            total = total + parseInt(inputPrice[i].value) * ( parseInt(inputCant[i].value) ? parseInt(inputCant[i].value) : 0);
+        }
+        
+        $('#total_fact').val(total);
+
+    });
+
+});
+
+
+function validateNumber(obj){
+        
+    var max = parseInt($("#item_cant_"+obj).attr("max"));
+    var valor = parseInt($("#item_cant_"+obj).val());
+    if(valor > max){
+        $("#item_cant_"+obj).val(max);
+    }
+}
+
+
+</script>                
+            
+    

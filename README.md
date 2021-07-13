@@ -1,2 +1,1 @@
-# Inventario
-Proyecto de Pruebas de Inventario y Ventas
+# carrillo_system_front

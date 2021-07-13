@@ -1,0 +1,97 @@
+
+<div class="row servico_cliente">
+ 
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 p-b-20">
+        
+        
+        <form role="form" class="row" id="formTabServicioCliente" action="#">            
+            
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <label for="codigo_barras_servicio">Codigo de Barras</label>
+                <div class="input-group">
+                    <input type="text" autofocus="autofocus" class="form-control" id="codigo_barras_servicio">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <label for="tipo_ser_servicio">Tipo de Servicio</label>                           
+                <div class="input-group">                                     
+                    <select class="custom_select form-control" onchange="changeSelect('tipo_ser_servicio', 2)" data-target="fecha_bus_servicio" id="tipo_ser_servicio" style="width: 100%">
+                            <option value="1" selected="">Productos Nuevos</option>
+                            <option value="2">Servicio Técnico</option> 
+                    </select>  
+                </div>                
+            </div>
+
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <label for="fecha_bus_servicio">Fecha del Bauche</label>
+                <div class="input-group">
+                    <input type="text" required="" disabled="" class="form-control datepicker" data-date-end-date="0d" data-date-format="yyyy/mm/dd" placeholder="yyyy/mm/dd" id="fecha_bus_servicio">
+                </div>
+            </div>
+
+            <div class="form-group col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <label class="name-hidden">Button</label>
+                <div class="input-group vertical">
+                    <button class="btn waves-effect waves-light btn-secondary" type="button" onclick="searchInventFiltros('servico_cliente')">Buscar</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 tableServicio">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right m-b-20 p-r-0">
+            <button class="btn waves-effect waves-light btn-secondary" onclick="cargarAtencion('servico_cliente')" type="button">Recargar Tabla</button>
+        </div>
+        <div class="table-responsive m-t-20">
+            <table id="tableServicio" class="myTable myTableDas tablePayers display nowrap table table-hover table-striped" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Codigo de Barras</th>                        
+                        <th>Marca</th>
+                        <th>Modelo</th>                        
+                        <th>Precio Venta (COL$)</th>
+                        <th>Cantidad Disponible</th>                                                                     
+                    </tr>
+                </thead>
+                <tbody>
+                                                                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 tableBauches hide m-t-40">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right m-b-20 p-r-0">
+            <button class="btn waves-effect waves-light btn-secondary" onclick="cargarBauchesAtencion('servico_cliente')" type="button">Recargar Tabla</button>
+        </div>
+        <div class="table-responsive m-t-20">
+            <table id="tableBauchesList" class="display nowrap table table-hover table-striped" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Fecha Bauche</th>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Telefono</th>
+                        <th>Diagnóstico</th>                        
+                        <th class="text-center">Estado</th>                                 
+                    </tr>
+                </thead>
+                <tbody>
+                                                                        
+                </tbody>
+            </table>
+
+
+        </div>
+            
+
+
+    </div>  
+</div>
+
+
+                   
+            
+    
